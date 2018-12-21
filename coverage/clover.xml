@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<coverage generated="1545381940298" clover="3.2.0">
+  <project timestamp="1545381940298" name="All files">
+    <metrics statements="38" coveredstatements="30" conditionals="45" coveredconditionals="28" methods="2" coveredmethods="2" elements="85" coveredelements="60" complexity="0" loc="38" ncloc="38" packages="1" files="1" classes="1">
+      <file name="index.js" path="/Users/lihaibo/Desktop/regexp/script/index.js">
+        <metrics statements="38" coveredstatements="30" conditionals="45" coveredconditionals="28" methods="2" coveredmethods="2"/>
+        <line num="4" count="2" type="stmt"/>
+        <line num="10" count="2" type="stmt"/>
+        <line num="11" count="2" type="stmt"/>
+        <line num="12" count="2" type="cond" truecount="2" falsecount="2"/>
+        <line num="13" count="0" type="stmt"/>
+        <line num="14" count="0" type="stmt"/>
+        <line num="17" count="2" type="cond" truecount="2" falsecount="2"/>
+        <line num="18" count="0" type="stmt"/>
+        <line num="19" count="0" type="stmt"/>
+        <line num="22" count="2" type="stmt"/>
+        <line num="23" count="2" type="stmt"/>
+        <line num="28" count="2" type="cond" truecount="1" falsecount="1"/>
+        <line num="29" count="2" type="cond" truecount="1" falsecount="1"/>
+        <line num="30" count="0" type="stmt"/>
+        <line num="31" count="0" type="stmt"/>
+        <line num="33" count="2" type="stmt"/>
+        <line num="34" count="4" type="cond" truecount="1" falsecount="1"/>
+        <line num="35" count="0" type="stmt"/>
+        <line num="36" count="0" type="stmt"/>
+        <line num="39" count="4" type="stmt"/>
+        <line num="40" count="4" type="cond" truecount="1" falsecount="1"/>
+        <line num="42" count="4" type="cond" truecount="2" falsecount="0"/>
+        <line num="43" count="4" type="cond" truecount="1" falsecount="1"/>
+        <line num="44" count="4" type="cond" truecount="1" falsecount="1"/>
+        <line num="45" count="4" type="cond" truecount="1" falsecount="1"/>
+        <line num="47" count="4" type="cond" truecount="3" falsecount="0"/>
+        <line num="48" count="4" type="stmt"/>
+        <line num="49" count="4" type="stmt"/>
+        <line num="52" count="2" type="cond" truecount="1" falsecount="1"/>
+        <line num="53" count="2" type="cond" truecount="1" falsecount="1"/>
+        <line num="58" count="2" type="stmt"/>
+        <line num="64" count="2" type="stmt"/>
+        <line num="69" count="2" type="stmt"/>
+        <line num="70" count="2" type="stmt"/>
+        <line num="75" count="4" type="cond" truecount="5" falsecount="1"/>
+        <line num="76" count="1" type="stmt"/>
+        <line num="77" count="1" type="cond" truecount="3" falsecount="1"/>
+        <line num="78" count="1" type="cond" truecount="2" falsecount="2"/>
+      </file>
+    </metrics>
+  </project>
+</coverage>

@@ -1,0 +1,308 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <title>Code coverage report for index.js</title>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="prettify.css" />
+    <link rel="stylesheet" href="base.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style type='text/css'>
+        .coverage-summary .sorter {
+            background-image: url(sort-arrow-sprite.png);
+        }
+    </style>
+</head>
+<body>
+<div class='wrapper'>
+  <div class='pad1'>
+    <h1>
+      <a href="index.html">All files</a> index.js
+    </h1>
+    <div class='clearfix'>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">78.95% </span>
+        <span class="quiet">Statements</span>
+        <span class='fraction'>30/38</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">62.22% </span>
+        <span class="quiet">Branches</span>
+        <span class='fraction'>28/45</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">100% </span>
+        <span class="quiet">Functions</span>
+        <span class='fraction'>2/2</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">78.95% </span>
+        <span class="quiet">Lines</span>
+        <span class='fraction'>30/38</span>
+      </div>
+    </div>
+  </div>
+  <div class='status-line medium'></div>
+<pre><table class="coverage">
+<tr><td class="line-count quiet">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68
+69
+70
+71
+72
+73
+74
+75
+76
+77
+78
+79
+80
+81
+82</td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">4x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">4x</span>
+<span class="cline-any cline-yes">4x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">4x</span>
+<span class="cline-any cline-yes">4x</span>
+<span class="cline-any cline-yes">4x</span>
+<span class="cline-any cline-yes">4x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">4x</span>
+<span class="cline-any cline-yes">4x</span>
+<span class="cline-any cline-yes">4x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">4x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">export default {
+    reg: '',
+    init(obj) {
+        let initVariable = {
+            strictStart: false,
+            strictEnding: false,
+            isglobal: false,
+            isignore: false
+        };
+        this.reg = '';
+        let newobj = Object.assign(initVariable, obj); //merge 数组
+        <span class="missing-if-branch" title="if path not taken" >I</span>if (newobj.isglobal &amp;&amp; <span class="branch-1 cbranch-no" title="branch not covered" >newobj.strictStart)</span> {
+<span class="cstat-no" title="statement not covered" >            throw '1000  全局匹配和开头匹配不能同时使用';</span>
+<span class="cstat-no" title="statement not covered" >            return false;</span>
+        }
+&nbsp;
+        <span class="missing-if-branch" title="if path not taken" >I</span>if (newobj.isglobal &amp;&amp; <span class="branch-1 cbranch-no" title="branch not covered" >newobj.strictEnding)</span> {
+<span class="cstat-no" title="statement not covered" >            throw '1001 全局匹配和结尾匹配不能同时使用';</span>
+<span class="cstat-no" title="statement not covered" >            return false;</span>
+        }
+&nbsp;
+        this.matching(newobj);
+        return this.reg;
+    },
+&nbsp;
+    //验证计算
+    matching(prames) {
+        this.reg += prames.strictStart ? '^' : <span class="branch-1 cbranch-no" title="branch not covered" >'';</span>
+        <span class="missing-if-branch" title="if path not taken" >I</span>if (prames.children.length &lt; 1) {
+<span class="cstat-no" title="statement not covered" >            throw '1002 匹配参数不能为空！';</span>
+<span class="cstat-no" title="statement not covered" >            return false;</span>
+        }
+        prames.children.map(item =&gt; {
+            <span class="missing-if-branch" title="if path not taken" >I</span>if (JSON.stringify(item) === '{}') {
+<span class="cstat-no" title="statement not covered" >                throw '1003 存在空对象!'; </span>// 如果为空,返回false
+<span class="cstat-no" title="statement not covered" >                return false;</span>
+            }
+&nbsp;
+            this.reg += '[';
+            this.reg += item.isReversal ? <span class="branch-0 cbranch-no" title="branch not covered" >'^' </span>: ''; //判断取反
+&nbsp;
+            item.number &amp;&amp; this.constant('number');
+            item.capitalCode &amp;&amp; <span class="branch-1 cbranch-no" title="branch not covered" >this.constant('capitalCode');</span>
+            item.lowercaseCode &amp;&amp; <span class="branch-1 cbranch-no" title="branch not covered" >this.constant('lowercaseCode');</span>
+            item.matchingChinese &amp;&amp; <span class="branch-1 cbranch-no" title="branch not covered" >this.constant('matchingChinese');</span>
+            //自定义字符
+            item.customCharacter &amp;&amp; item.customCharacter.length &gt; 0 &amp;&amp; this.custom(item.customCharacter);
+            this.reg += ']';
+            this.matchingTimes(item);
+        });
+&nbsp;
+        this.reg += prames.strictEnding ? '$' : <span class="branch-1 cbranch-no" title="branch not covered" >'';</span>
+        this.reg += prames.isglobal ? <span class="branch-0 cbranch-no" title="branch not covered" >'g' </span>: '';
+    },
+&nbsp;
+    //定义的长量
+    constant(count) {
+        let obj = {
+            number: '0-9',
+            capitalCode: 'a-z',
+            lowercaseCode: 'A-Z',
+            matchingChinese: '\u4E00-\u9FA5'
+        };
+        this.reg += obj[count];
+    },
+&nbsp;
+    //自定义匹配规则操作
+    custom(prames) {
+        prames.map(item =&gt; {
+            this.reg += item;
+        });
+    },
+    //匹配次数
+    matchingTimes(prames) {
+        if ((prames.minCount &amp;&amp; typeof prames.minCount == 'number') || (prames.maxCount &amp;&amp; <span class="branch-3 cbranch-no" title="branch not covered" >typeof prames.maxCount == 'number')</span>) {
+            this.reg += '{';
+            this.reg += prames.minCount &amp;&amp; typeof prames.minCount == 'number' ? prames.minCount + '' : <span class="branch-1 cbranch-no" title="branch not covered" >'1';</span>
+            this.reg += prames.maxCount &amp;&amp; <span class="branch-1 cbranch-no" title="branch not covered" >typeof prames.maxCount == 'number' </span>? <span class="branch-0 cbranch-no" title="branch not covered" >',' + prames.maxCount + '}' </span>: '}';
+        }
+    }
+};
+&nbsp;</pre></td></tr>
+</table></pre>
+<div class='push'></div><!-- for sticky footer -->
+</div><!-- /wrapper -->
+<div class='footer quiet pad2 space-top1 center small'>
+  Code coverage
+  generated by <a href="https://istanbul.js.org/" target="_blank">istanbul</a> at Fri Dec 21 2018 16:45:40 GMT+0800 (CST)
+</div>
+</div>
+<script src="prettify.js"></script>
+<script>
+window.onload = function () {
+        if (typeof prettyPrint === 'function') {
+            prettyPrint();
+        }
+};
+</script>
+<script src="sorter.js"></script>
+</body>
+</html>
