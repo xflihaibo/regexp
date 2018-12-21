@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Reg</title>
+</head>
+<body>
+    <h1>hello Rex</h1>
+</body>
+<script src="./script/index.js" ></script>
+<script>
+    window.onload=function () {
+        let obj = {
+            strictStart: true,
+            strictEnding: true,
+            children: [
+                {
+                    customCharacter: [1]
+                },
+                {
+                    customCharacter: [35789]
+                },
+                {
+                    number: true,
+                    minCount: 9
+                }
+            ]
+    };
+    let regPhone = new RegExp(Reg.init(obj));
+    let testPhone = '13838624806';
+    console.log(regPhone.test(testPhone));
+
+    }
+</script>
+</html>
