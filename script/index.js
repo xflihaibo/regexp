@@ -7,6 +7,7 @@ export default {
             isglobal: false,
             isignore: false
         };
+        this.reg = '';
         let newobj = Object.assign(initVariable, obj); //merge 数组
         if (newobj.isglobal && newobj.strictStart) {
             throw '1000  全局匹配和开头匹配不能同时使用';
