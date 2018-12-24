@@ -13,7 +13,6 @@ describe('测试纯数字', function() {
         let regNum = new RegExp(Reg.init(num));
         let testNum = '1';
         let errorNum = 'A';
-        console.log(regNum);
         expect(regNum.test(testNum)).toBe(true);
         expect(regNum.test(errorNum)).toBe(false);
     });
@@ -44,5 +43,28 @@ describe('测试手机号码', function() {
         expect(regPhone.test(testPhone)).toBe(true);
         expect(regPhone.test(errorPhone)).toBe(false);
         expect(regPhone.test(errorPhone2)).toBe(false);
+    });
+});
+
+describe('测试匹配图片', function() {
+    test('匹配图片', () => {
+        let objImg = {
+            strictEnding: true,
+            children: [
+                {
+                    customCharacter: ['/.']
+                },
+                {
+                    customCharacter: ['png', 'gif', 'jpe?g']
+                }
+            ]
+        };
+        let regImg = new RegExp(Reg.init(objImg));
+        let testImg = '.png';
+        let testImg1 = '.jpg';
+        let errorImg = '.pnng';
+        expect(regImg.test(testImg)).toBe(true);
+        expect(regImg.test(testImg1)).toBe(true);
+        expect(regImg.test(errorImg)).toBe(false);
     });
 });

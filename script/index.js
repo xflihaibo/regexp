@@ -1,5 +1,11 @@
 export default {
     reg: '',
+    character: {
+        number: '0-9',
+        capitalCode: 'a-z',
+        lowercaseCode: 'A-Z',
+        matchingChinese: '\u4E00-\u9FA5'
+    },
     init(obj) {
         let initVariable = {
             strictStart: false,
@@ -30,22 +36,43 @@ export default {
             throw '1002 匹配参数不能为空！';
             return false;
         }
+        //循环对子元素进行操作赋值
         prames.children.map(item => {
             if (JSON.stringify(item) === '{}') {
                 throw '1003 存在空对象!'; // 如果为空,返回false
                 return false;
             }
 
-            this.reg += '[';
-            this.reg += item.isReversal ? '^' : ''; //判断取反
+            let isBrackets =
+                item.customCharacter &&
+                item.customCharacter.some(item => {
+                    if (item.length >= 3) {
+                        return true;
+                    } else if (item.length >= 2 && item.slice(0, 1) !== '/') {
+                        return true;
+                    } else {
+                        return false;
+                    }
+                    //return item.length >= 2 && item.slice(0, 1) !== '/';
+                });
+
+            if (isBrackets) {
+                this.reg += '(';
+                this.reg += item.singleMatch ? '?:' : ''; //判断取反
+            } else {
+                this.reg += '[';
+                this.reg += item.isReversal ? '^' : ''; //判断取反
+            }
 
             item.number && this.constant('number');
             item.capitalCode && this.constant('capitalCode');
             item.lowercaseCode && this.constant('lowercaseCode');
             item.matchingChinese && this.constant('matchingChinese');
             //自定义字符
-            item.customCharacter && item.customCharacter.length > 0 && this.custom(item.customCharacter);
-            this.reg += ']';
+            item.customCharacter && item.customCharacter.length > 0 && this.custom(item.customCharacter, isBrackets);
+
+            this.reg += isBrackets ? ')' : ']';
+
             this.matchingTimes(item);
         });
 
@@ -55,20 +82,12 @@ export default {
 
     //定义的长量
     constant(count) {
-        let obj = {
-            number: '0-9',
-            capitalCode: 'a-z',
-            lowercaseCode: 'A-Z',
-            matchingChinese: '\u4E00-\u9FA5'
-        };
-        this.reg += obj[count];
+        this.reg += this.character[count];
     },
 
     //自定义匹配规则操作
-    custom(prames) {
-        prames.map(item => {
-            this.reg += item;
-        });
+    custom(prames, bool) {
+        this.reg += bool ? prames.join('|') : prames.join('');
     },
     //匹配次数
     matchingTimes(prames) {
@@ -79,3 +98,7 @@ export default {
         }
     }
 };
+
+// export default={
+//     Reg
+// }

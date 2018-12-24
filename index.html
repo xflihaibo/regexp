@@ -10,26 +10,81 @@
 <script src="./script/index.js" ></script>
 <script>
     window.onload=function () {
-        let obj = {
+    //     let obj = {
+    //         strictStart: true,
+    //         strictEnding: true,
+    //         children: [
+    //             {
+    //                 customCharacter: [1]
+    //             },
+    //             {
+    //                 customCharacter: [35789]
+    //             },
+    //             {
+    //                 number: true,
+    //                 minCount: 9
+    //             }
+    //         ]
+    // };
+    // let regPhone = new RegExp(Reg.init(obj));
+    // console.log(regPhone)
+    // let testPhone = '13838624806';
+    // console.log(regPhone.test(testPhone));
+
+    //  let num = {
+    //         strictStart: true,
+    //         strictEnding: true,
+    //         children: [
+    //             {
+    //                 number: true
+    //             }
+    //         ]
+    //     };
+    //  let regNum = new RegExp(Reg.init(num));
+    //  console.log(regNum)
+    
+       let code = {
             strictStart: true,
             strictEnding: true,
             children: [
                 {
-                    customCharacter: [1]
-                },
-                {
-                    customCharacter: [35789]
-                },
-                {
-                    number: true,
-                    minCount: 9
+                    capitalCode: true
+                },{
+                    customCharacter:[1,3,5,'a','b','p','g','doc']
                 }
             ]
-    };
-    let regPhone = new RegExp(Reg.init(obj));
-    let testPhone = '13838624806';
-    console.log(regPhone.test(testPhone));
+        };
+     let regNum1 = new RegExp(Reg.init(code));
+     console.log(regNum1)
+      let testcode = 'ag';
+    console.log(regNum1.test(testcode));
+
+
+    // let Regimg=new RegExp(/\.(?:png|gif|jpe?g|j|a)$/)
+    // let imgs='a.gif';
+    // console.log(Regimg.test(imgs))
+    //   let imgs1='a.jpg';
+    // console.log(Regimg.test(imgs1))
+    // let imgs2='a.js';
+    // console.log(Regimg.test(imgs2))
+    // let imgs3='a.j';
+    // console.log(imgs3.match(Regimg))
+    
+    //（）: 多字节 不可转义
+    // []:单字节 可转义
+
+    // let Regimg=new RegExp(/(1-9)$/)
+    // let imgs='1-9';
+    // console.log(Regimg.test(imgs))
+    // let imgs2='91';
+    // console.log(Regimg.test(imgs2))
+    // let imgs1='4';
+    // console.log(Regimg.test(imgs1))
+    // let imgs3='12';
+    // console.log(Regimg.test(imgs3))
+   
 
     }
+
 </script>
 </html>
