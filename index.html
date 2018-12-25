@@ -10,38 +10,38 @@
 <script src="./script/index.js" ></script>
 <script>
     window.onload=function () {
-    //     let obj = {
-    //         strictStart: true,
-    //         strictEnding: true,
-    //         children: [
-    //             {
-    //                 customCharacter: [1]
-    //             },
-    //             {
-    //                 customCharacter: [35789]
-    //             },
-    //             {
-    //                 number: true,
-    //                 minCount: 9
-    //             }
-    //         ]
-    // };
-    // let regPhone = new RegExp(Reg.init(obj));
-    // console.log(regPhone)
-    // let testPhone = '13838624806';
-    // console.log(regPhone.test(testPhone));
+        let obj = {
+            strictStart: true,
+            strictEnding: true,
+            children: [
+                {
+                    customCharacter: [1]
+                },
+                {
+                    customCharacter: [35789]
+                },
+                {
+                    number: true,
+                    minCount: 9
+                }
+            ]
+    };
+    let regPhone = new RegExp(Reg.init(obj));
+    console.log(regPhone)
+    let testPhone = '13838624806';
+    console.log(regPhone.test(testPhone));
 
-    //  let num = {
-    //         strictStart: true,
-    //         strictEnding: true,
-    //         children: [
-    //             {
-    //                 number: true
-    //             }
-    //         ]
-    //     };
-    //  let regNum = new RegExp(Reg.init(num));
-    //  console.log(regNum)
+     let num = {
+            strictStart: true,
+            strictEnding: true,
+            children: [
+                {
+                    number: true
+                }
+            ]
+        };
+     let regNum = new RegExp(Reg.init(num));
+     console.log(regNum)
     
        let code = {
             strictStart: true,
@@ -83,6 +83,8 @@
     // let imgs3='12';
     // console.log(Regimg.test(imgs3))
    
+     console.log(Reg.VERSION)
+
 
     }
 
