@@ -139,7 +139,7 @@ Days: 日
 ```javascript
 let quick = Calves.quick('Number');
 let quickOk = '12';
-let quickError = 'ag';
+let quickError = 'hello world';
 console.log(quick);
 console.log(quick.test(quickOk));
 console.log(quick.test(quickError));

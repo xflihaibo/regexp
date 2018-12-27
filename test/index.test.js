@@ -68,3 +68,29 @@ describe('测试匹配图片', function() {
         expect(regImg.test(errorImg)).toBe(false);
     });
 });
+
+describe('测试快捷方式', function() {
+    test('快捷方式 数字', () => {
+        let quick = Calves.quick('Number');
+        let quickOk = '12';
+        let quickError = 'hello world';
+        expect(quick.test(quickOk)).toBe(true);
+        expect(quick.test(quickError)).toBe(false);
+    });
+
+    test('快捷方式 中文', () => {
+        let quick = Calves.quick('Chinese');
+        let quickOk = '你好';
+        let quickError = 'hello world';
+        expect(quick.test(quickOk)).toBe(true);
+        expect(quick.test(quickError)).toBe(false);
+    });
+
+    test('快捷方式 月份', () => {
+        let quick = Calves.quick('Month');
+        let quickOk = '10';
+        let quickError = '13';
+        expect(quick.test(quickOk)).toBe(true);
+        expect(quick.test(quickError)).toBe(false);
+    });
+});
