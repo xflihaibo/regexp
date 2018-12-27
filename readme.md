@@ -1,8 +1,7 @@
 # 正则表达式
 
-![logo](./Image/logo.png=200x)
+<img src="./Image/logo.png" width="100px" align="center"  />
 
-<img src="./Image/logo.png" width="100px"  />
 > 一个简单灵活的正则表达式生成库
 
 ## 参数
