@@ -1,8 +1,9 @@
 # 正则表达式
+<div align=center>
+<img src="./Image/logo.png" width="160px" align="center"  />
+</div>
 
-![logo](./Image/logo.png =200x)
-
-> 一个简单灵活的正则表达式生成库
+一个简单灵活的正则表达式生成库
 
 ## 参数
 
