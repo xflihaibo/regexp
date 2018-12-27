@@ -43,6 +43,7 @@
             Days: '^((0?[1-9])|((1|2)[0-9])|30|31)$' //日
         };
         console.error('正在优化中....');
+        return quickUser[obj] || 'null';
     };
     Calves.init = function(obj) {
         let initVariable = {
