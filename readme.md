@@ -94,21 +94,7 @@
 > 类型：number
 > 默认：空
 
-## 快捷用法
-
-Number:数字
-Chinese:中文
-IDCard: 身份证号
-Letter:字母
-LetterNumber: 字母数字
-LowerCaseEnglish:小写英文
-CapitalEnglish: 大写英文
-Phone:匹配手机号
-Email:Email，
-Month: 月份
-Days: 日
-
-### 快捷用法
+#### 快捷用法
 
 ```javascript
 let regPhone = new RegExp(Calves.quickUser('Number'));
@@ -137,3 +123,17 @@ let regPhone = new Calves(Reg.init(obj));
 let testPhone = '13838624806';
 console.log(regPhone.test(testPhone));
 ```
+
+## 快捷用法
+
+Number:数字
+Chinese:中文
+IDCard: 身份证号
+Letter:字母
+LetterNumber: 字母数字
+LowerCaseEnglish:小写英文
+CapitalEnglish: 大写英文
+Phone:匹配手机号
+Email:Email，
+Month: 月份
+Days: 日
