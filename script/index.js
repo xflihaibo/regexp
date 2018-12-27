@@ -42,8 +42,13 @@
             Month: `^(0?[1-9]|1[0-2])$`, //月份
             Days: '^((0?[1-9])|((1|2)[0-9])|30|31)$' //日
         };
-        console.error('正在优化中....');
-        return quickUser[obj] || 'null';
+
+        if (!quickUser[obj]) {
+            throw '1004   正则匹配不存在！';
+            return false;
+        } else {
+            return new RegExp(quickUser[obj]);
+        }
     };
     Calves.init = function(obj) {
         let initVariable = {
@@ -65,7 +70,8 @@
         }
 
         matching(newobj);
-        return Calves.reg;
+        // return Calves.reg;
+        return new RegExp(Calves.reg);
     };
 
     //验证计算

@@ -10,7 +10,7 @@ describe('测试纯数字', function() {
                 }
             ]
         };
-        let regNum = new RegExp(Calves.init(num));
+        let regNum = Calves.init(num);
         let testNum = '1';
         let errorNum = 'A';
         expect(regNum.test(testNum)).toBe(true);
@@ -36,7 +36,7 @@ describe('测试手机号码', function() {
                 }
             ]
         };
-        let regPhone = new RegExp(Calves.init(obj));
+        let regPhone = Calves.init(obj);
         let testPhone = '13838624806';
         let errorPhone = '23838624806';
         let errorPhone2 = '12838624806';
@@ -59,7 +59,7 @@ describe('测试匹配图片', function() {
                 }
             ]
         };
-        let regImg = new RegExp(Calves.init(objImg));
+        let regImg = Calves.init(objImg);
         let testImg = '.png';
         let testImg1 = '.jpg';
         let errorImg = '.pnng';

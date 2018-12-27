@@ -1,4 +1,5 @@
 # 正则表达式
+
 <div align=center>
 <img src="./Image/logo.png" width="160px" align="center"  />
 </div>
@@ -95,12 +96,6 @@
 > 类型：number
 > 默认：空
 
-#### 快捷用法
-
-```javascript
-let regPhone = new RegExp(Calves.quickUser('Number'));
-```
-
 ## 用法
 
 ```javascript
@@ -125,7 +120,7 @@ let testPhone = '13838624806';
 console.log(regPhone.test(testPhone));
 ```
 
-## 快捷用法
+## 快捷方式
 
 Number:数字
 Chinese:中文
@@ -138,3 +133,14 @@ Phone:匹配手机号
 Email:Email，
 Month: 月份
 Days: 日
+
+#### 快捷用法
+
+```javascript
+let quick = Calves.quick('Number');
+let quickOk = '12';
+let quickError = 'ag';
+console.log(quick);
+console.log(quick.test(quickOk));
+console.log(quick.test(quickError));
+```
