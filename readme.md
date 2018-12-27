@@ -1,6 +1,6 @@
 # 正则表达式
 
-![logo](./Image/logo.png =200x)
+![logo](./Image/logo.png=200x)
 
 > 一个简单灵活的正则表达式生成库
 
