@@ -2,42 +2,56 @@
     var root = (typeof self == 'object' && self.self === self && self) || (typeof global == 'object' && global.global === global && global) || this || {};
     // console.log(root);
     // Create a safe reference to the Underscore object for use below.
-    var Reg = function(obj) {
-        if (obj instanceof Reg) return obj;
-        if (!(this instanceof Reg)) return new Reg(obj);
-        this.Regwrapped = obj;
+    var Calves = function(obj) {
+        if (obj instanceof Calves) return obj;
+        if (!(this instanceof Calves)) return new Calves(obj);
+        this.Calveswrapped = obj;
     };
 
     if (typeof exports != 'undefined' && !exports.nodeType) {
         if (typeof module != 'undefined' && !module.nodeType && module.exports) {
-            exports = module.exports = Reg;
+            exports = module.exports = Calves;
         }
-        exports.Reg = Reg;
+        exports.Calves = Calves;
     } else {
-        root.Reg = Reg;
+        root.Calves = Calves;
     }
 
     // Current version.
-    Reg.VERSION = '1.0.0';
+    Calves.VERSION = '1.0.0';
 
-    Reg.reg = '';
-    Reg.character = {
+    Calves.reg = '';
+    var character = {
         number: '0-9',
         capitalCode: 'a-z',
         lowercaseCode: 'A-Z',
         matchingChinese: '\u4E00-\u9FA5'
     };
-    Reg.quick = function(obj) {
+
+    Calves.quick = function(obj) {
+        let quickUser = {
+            Number: `^[0-9]*$`, //数字
+            Chinese: `^[\u4e00-\u9fa5]*$`, //中文
+            IDCard: `^\d{8,18}|[0-9x]{8,18}|[0-9X]{8,18}?$`, //身份证号
+            Letter: `^[A-Za-z]+$ `, //字母
+            LetterNumber: `^[A-Za-z0-9]+$`, //字母数字
+            LowerCaseEnglish: `^[a-z]+$`, //小写英文
+            CapitalEnglish: `^[A-Z]+$`, //大写英文
+            Phone: `^1[35789]d{9}$`, // :匹配手机号
+            Email: `^\w+([-+.]\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*$`, //Email，
+            Month: `^(0?[1-9]|1[0-2])$`, //月份
+            Days: '^((0?[1-9])|((1|2)[0-9])|30|31)$' //日
+        };
         console.error('正在优化中....');
     };
-    Reg.init = function(obj) {
+    Calves.init = function(obj) {
         let initVariable = {
             strictStart: false,
             strictEnding: false,
             isglobal: false,
             isignore: false
         };
-        Reg.reg = '';
+        Calves.reg = '';
         let newobj = Object.assign(initVariable, obj); //merge 数组
         if (newobj.isglobal && newobj.strictStart) {
             throw '1000  全局匹配和开头匹配不能同时使用';
@@ -49,13 +63,13 @@
             return false;
         }
 
-        Reg.matching(newobj);
-        return Reg.reg;
+        matching(newobj);
+        return Calves.reg;
     };
 
     //验证计算
-    Reg.matching = function(prames) {
-        Reg.reg += prames.strictStart ? '^' : '';
+    var matching = function(prames) {
+        Calves.reg += prames.strictStart ? '^' : '';
         if (prames.children.length < 1) {
             throw '1002 匹配参数不能为空！';
             return false;
@@ -67,7 +81,7 @@
                 return false;
             }
 
-            let isBrackets =
+            var isBrackets =
                 item.customCharacter &&
                 item.customCharacter.some(item => {
                     if (item.length >= 3) {
@@ -81,44 +95,44 @@
                 });
 
             if (isBrackets) {
-                Reg.reg += '(';
-                Reg.reg += item.singleMatch ? '?:' : ''; //判断取反
+                Calves.reg += '(';
+                Calves.reg += item.singleMatch ? '?:' : ''; //判断取反
             } else {
-                Reg.reg += '[';
-                Reg.reg += item.isReversal ? '^' : ''; //判断取反
+                Calves.reg += '[';
+                Calves.reg += item.isReversal ? '^' : ''; //判断取反
             }
 
-            item.number && Reg.constant('number');
-            item.capitalCode && Reg.constant('capitalCode');
-            item.lowercaseCode && Reg.constant('lowercaseCode');
-            item.matchingChinese && Reg.constant('matchingChinese');
+            item.number && constant('number');
+            item.capitalCode && constant('capitalCode');
+            item.lowercaseCode && constant('lowercaseCode');
+            item.matchingChinese && constant('matchingChinese');
             //自定义字符
-            item.customCharacter && item.customCharacter.length > 0 && Reg.custom(item.customCharacter, isBrackets);
+            item.customCharacter && item.customCharacter.length > 0 && custom(item.customCharacter, isBrackets);
 
-            Reg.reg += isBrackets ? ')' : ']';
+            Calves.reg += isBrackets ? ')' : ']';
 
-            Reg.matchingTimes(item);
+            matchingTimes(item);
         });
 
-        Reg.reg += prames.strictEnding ? '$' : '';
-        Reg.reg += prames.isglobal ? 'g' : '';
+        Calves.reg += prames.strictEnding ? '$' : '';
+        Calves.reg += prames.isglobal ? 'g' : '';
     };
 
     //定义的长量
-    Reg.constant = function(count) {
-        Reg.reg += Reg.character[count];
+    var constant = function(count) {
+        Calves.reg += character[count];
     };
 
     //自定义匹配规则操作
-    Reg.custom = function(prames, bool) {
-        Reg.reg += bool ? prames.join('|') : prames.join('');
+    var custom = function(prames, bool) {
+        Calves.reg += bool ? prames.join('|') : prames.join('');
     };
     //匹配次数
-    Reg.matchingTimes = function(prames) {
+    var matchingTimes = function(prames) {
         if ((prames.minCount && typeof prames.minCount == 'number') || (prames.maxCount && typeof prames.maxCount == 'number')) {
-            Reg.reg += '{';
-            Reg.reg += prames.minCount && typeof prames.minCount == 'number' ? prames.minCount + '' : '1';
-            Reg.reg += prames.maxCount && typeof prames.maxCount == 'number' ? ',' + prames.maxCount + '}' : '}';
+            Calves.reg += '{';
+            Calves.reg += prames.minCount && typeof prames.minCount == 'number' ? prames.minCount + '' : '1';
+            Calves.reg += prames.maxCount && typeof prames.maxCount == 'number' ? ',' + prames.maxCount + '}' : '}';
         }
     };
 })();

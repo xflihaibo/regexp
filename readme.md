@@ -1,12 +1,14 @@
 # 正则表达式
 
+![logo](./Image/logo.png)
+
 > 一个简单灵活的正则表达式生成库
 
 ## 参数
 
 ### strictStart
 
-> 设置开始校验 (不能和全局查找 isglobal 同用)
+> 设置开头校验 (不能和全局查找 isglobal 同用)
 > 类型：boolean
 > 默认：false
 
@@ -32,7 +34,7 @@
 
 > 设置匹配参数条件
 > 类型：array
-> 默认：null
+> 必填项
 
 ## 子级
 
