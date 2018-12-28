@@ -17,7 +17,7 @@
         root.Calves = Calves;
     }
 
-    // Current version.
+    // Calves version.
     Calves.VERSION = '1.0.0';
 
     Calves.reg = '';
@@ -50,6 +50,7 @@
             return new RegExp(quickUser[obj]);
         }
     };
+    // init 初始化数据
     Calves.init = function(obj) {
         let initVariable = {
             strictStart: false,
@@ -70,8 +71,8 @@
         }
 
         matching(newobj);
-        // return Calves.reg;
-        return new RegExp(Calves.reg);
+
+        return resultValue(newobj);
     };
 
     //验证计算
@@ -87,26 +88,21 @@
                 throw '1003 存在空对象!'; // 如果为空,返回false
                 return false;
             }
-
+            // 判断用[] 还是 ()
             var isBrackets =
                 item.customCharacter &&
                 item.customCharacter.some(item => {
-                    if (item.length >= 3) {
-                        return true;
-                    } else if (item.length >= 2 && item.slice(0, 1) !== '/') {
+                    if (item.length >= 3 || (item.length >= 2 && item.slice(0, 1) !== '/')) {
                         return true;
                     } else {
                         return false;
                     }
-                    //return item.length >= 2 && item.slice(0, 1) !== '/';
                 });
 
             if (isBrackets) {
-                Calves.reg += '(';
-                Calves.reg += item.singleMatch ? '?:' : ''; //判断取反
+                Calves.reg += item.singleMatch ? '(?:' : '('; //是否需要单独匹配
             } else {
-                Calves.reg += '[';
-                Calves.reg += item.isReversal ? '^' : ''; //判断取反
+                Calves.reg += item.isReversal ? '[^' : '['; //判断是否取反
             }
 
             item.number && constant('number');
@@ -122,10 +118,9 @@
         });
 
         Calves.reg += prames.strictEnding ? '$' : '';
-        Calves.reg += prames.isglobal ? 'g' : '';
     };
 
-    //定义的长量
+    //定义的常量
     var constant = function(count) {
         Calves.reg += character[count];
     };
@@ -134,12 +129,31 @@
     var custom = function(prames, bool) {
         Calves.reg += bool ? prames.join('|') : prames.join('');
     };
+
     //匹配次数
     var matchingTimes = function(prames) {
         if ((prames.minCount && typeof prames.minCount == 'number') || (prames.maxCount && typeof prames.maxCount == 'number')) {
             Calves.reg += '{';
             Calves.reg += prames.minCount && typeof prames.minCount == 'number' ? prames.minCount + '' : '1';
             Calves.reg += prames.maxCount && typeof prames.maxCount == 'number' ? ',' + prames.maxCount + '}' : '}';
+        }
+    };
+
+    //返回值结果
+    var resultValue = function(prames) {
+        switch (prames) {
+            case prames.isglobal && prames.isignore:
+                return new RegExp(Calves.reg, 'ig');
+                break;
+            case prames.isglobal:
+                return new RegExp(Calves.reg, 'g');
+                break;
+            case prames.isignore:
+                return new RegExp(Calves.reg, 'i');
+                break;
+            default:
+                return new RegExp(Calves.reg);
+                break;
         }
     };
 })();

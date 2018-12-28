@@ -61,6 +61,22 @@
     console.log(regNum1.test(testcode));
 
 
+
+     let codeglobel = {
+            isglobal:true,
+            children: [
+                {
+                    customCharacter:['a']
+                }
+            ]
+        };
+    let regcodeglobel = Calves.init(codeglobel);
+    let codeglobelok='1212a';
+    let codeglobelerror='1212'
+    console.log(regcodeglobel)
+    console.log(regcodeglobel.test(codeglobelok))
+    console.log(regcodeglobel.test(codeglobelerror))
+
     // let Regimg=new RegExp(/\.(?:png|gif|jpe?g|j|a)$/)
     // let imgs='a.gif';
     // console.log(Regimg.test(imgs))
@@ -83,15 +99,13 @@
     // console.log(Regimg.test(imgs1))
     // let imgs3='12';
     // console.log(Regimg.test(imgs3))
-let quick = Calves.quick('Number');
-let quickOk = '12';
-let quickError = 'hello world';
-console.log(quick);
-console.log(quick.test(quickOk));
-console.log(quick.test(quickError));
-
-
-     console.log(Calves.VERSION)
+// let quick = Calves.quick('Number');
+// let quickOk = '12';
+// let quickError = 'hello world';
+// console.log(quick);
+// console.log(quick.test(quickOk));
+// console.log(quick.test(quickError));
+// console.log(Calves.VERSION)
 
 
     }

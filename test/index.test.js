@@ -16,6 +16,22 @@ describe('测试纯数字', function() {
         expect(regNum.test(testNum)).toBe(true);
         expect(regNum.test(errorNum)).toBe(false);
     });
+
+    test('验证全局匹配', function() {
+        let codeglobel = {
+            isglobal: true,
+            children: [
+                {
+                    customCharacter: ['a']
+                }
+            ]
+        };
+        let regcodeglobel = Calves.init(codeglobel);
+        let codeglobelok = '1212a';
+        let codeglobelerror = '1212';
+        expect(regcodeglobel.test(codeglobelok)).toBe(true);
+        expect(regcodeglobel.test(codeglobelerror)).toBe(false);
+    });
 });
 
 describe('测试手机号码', function() {
