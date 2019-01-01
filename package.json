@@ -1,10 +1,14 @@
 {
-  "name": "regularexpression",
+  "name": "calves-self",
   "version": "1.0.0",
-  "description": "regularexpression",
-  "main": "index.js",
+  "description": "regular expression --calves",
+  "main": "script/index.js",
   "directories": {
     "test": "test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:Silence520/regexp.git"
   },
   "scripts": {
     "test": "jest ",

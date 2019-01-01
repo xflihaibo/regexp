@@ -10,74 +10,223 @@
 <script src="./script/index.js" ></script>
 <script>
     window.onload=function () {
-        let obj = {
-            strictStart: true,
-            strictEnding: true,
-            children: [
-                {
-                    customCharacter: [1]
-                },
-                {
-                    customCharacter: [35789]
-                },
-                {
-                    number: true,
-                    minCount: 9
-                }
-            ]
-    };
-    let regPhone =Calves.init(obj);
-    console.log(regPhone)
-    let testPhone = '13838624806';
-    console.log(regPhone.test(testPhone));
 
-     let num = {
-            strictStart: true,
-            strictEnding: true,
-            children: [
-                {
-                    number: true
-                }
-            ]
-        };
-     let regNum = Calves.init(num);
-     console.log(typeof regNum)
+// function Observer() {
+//     this.fns = [];
+// }
+// Observer.prototype = {
+//     subscribe: function(fn) {
+//         this.fns.push(fn);
+//     },
+//     unsubscribe: function(fn) {
+//         this.fns = this.fns.filter(function(el) {
+//             if (el !== fn) {
+//                 return el;
+//             }
+//         });
+//     },
+//     update: function(o, thisObj) {
+//         var scope = thisObj || window;
+//         this.fns.forEach(function(el) {
+//             el.call(scope, o);
+//         });
+//     }
+// };
+
+//测试
+// var o = new Observer();
+// var f1 = function(data) {
+//     console.log('Robbin: ' + data + ', 赶紧干活了！');
+// };
+
+// o.subscribe(f1);
+// // o.subscribe(f2);
+
+// o.update('Tom 回来了！');
+
+// var f2 = function(data) {
+//     console.log('Randall: ' + data + ', 找他加点工资去！');
+// };
+
+// o.subscribe(f1);
+// // o.subscribe(f2);
+
+// o.update('Tom 回来了！');
+
+//退订 f1
+// o.unsubscribe(f1);
+//再来验证
+// o.update('Tom 回来了！');
+
+        
+        // let objChinese = {
+        //     //strictStart: true,
+        //     // strictEnding: true,
+        //     isglobal: true,
+        //     children: [{}]
+        // };
+        // let regChinese = Calves.init(objChinese);
+        // console.log(regChinese)
+
+    //     let obj = {
+    //         strictStart: true,
+    //         strictEnding: true,
+    //         children: [
+    //             {
+    //                 customCharacter: [1]
+    //             },
+    //             {
+    //                 customCharacter: [35789]
+    //             },
+    //             {
+    //                 number: true,
+    //                 minCount: 9
+    //             }
+    //         ]
+    // };
+    // let regPhone =Calves.init(obj);
+    // console.log(regPhone)
+    // let testPhone = '13838624806';
+    // console.log(regPhone.test(testPhone));
+
+    //  let num = {
+    //         strictStart: true,
+    //         strictEnding: true,
+    //         children: [
+    //             {
+    //                 number: true
+    //             }
+    //         ]
+    //     };
+    //  let regNum = Calves.init(num);
+    //  console.log(typeof regNum)
     
 
-       let code = {
-            strictStart: true,
-            strictEnding: true,
-            children: [
-                {
-                    capitalCode: true
-                },{
-                    customCharacter:[1,3,5,'a','b','p','g','doc']
-                }
-            ]
-        };
-     let regNum1 = Calves.init(code);
-     console.log(regNum1)
-      let testcode = 'ag';
-    console.log(regNum1.test(testcode));
+    //    let code = {
+    //         strictStart: true,
+    //         strictEnding: true,
+    //         children: [
+    //             {
+    //                 capitalCode: true
+    //             },{
+    //                 customCharacter:[1,3,5,'a','b','p','g','doc']
+    //             }
+    //         ]
+    //     };
+    //  let regNum1 = Calves.init(code);
+    //  console.log(regNum1)
+    //   let testcode = 'ag';
+    // console.log(regNum1.test(testcode));
 
 
 
-     let codeglobel = {
-            isglobal:true,
-            children: [
-                {
-                    customCharacter:['a']
-                }
-            ]
-        };
-    let regcodeglobel = Calves.init(codeglobel);
-    let codeglobelok='1212a';
-    let codeglobelerror='1212'
-    console.log(regcodeglobel)
-    console.log(regcodeglobel.test(codeglobelok))
-    console.log(regcodeglobel.test(codeglobelerror))
+    //  let codeglobel = {
+    //         isglobal:true,
+    //         children: [
+    //             {
+    //                 customCharacter:['a']
+    //             }
+    //         ]
+    //     };
+    // let regcodeglobel = Calves.init(codeglobel);
+    // let codeglobelok='1212a';
+    // let codeglobelerror='1212'
+    // console.log(regcodeglobel)
+    // console.log(regcodeglobel.test(codeglobelok))
+    // console.log(regcodeglobel.test(codeglobelerror))
 
-    // let Regimg=new RegExp(/\.(?:png|gif|jpe?g|j|a)$/)
+
+        // let codeignore = {
+        //     isignore: true,
+        //     children: [
+        //         {
+        //             customCharacter: ['a']
+        //         }
+        //     ]
+        // };
+        // let regcodeignore = Calves.init(codeignore);
+        // let codeignoreok = 'a';
+        // let codeignoreerror = 'A';
+        // console.log(regcodeignore)
+        // console.log(regcodeignore.test(codeignoreok))
+        // console.log(regcodeignore.test(codeignoreerror))
+
+        // let codeall = {
+        //     isignore: true,
+        //     isglobal: true,
+        //     children: [
+        //         {
+        //             customCharacter: ['\\d']
+        //         }
+        //     ]
+        // };
+        // let regcodeall = Calves.init(codeall);
+        // // let codeallok = '122a';
+        // // let codeallerror = '234a4';
+        //  console.log(regcodeall)
+        //  console.log(regcodeall.test('122'));
+        //  console.log(regcodeall.test('122'));
+         // console.log(regcodeall.test('122a'));
+            //let numb= new RegExp('/\d/')
+            // var numb=new RegExp("[pnggifjpe?g]");
+            // let numb2= /\d/;
+            // 
+            //     var numde='/[.](png|gif|jpe?g)$/'
+            //     var numb='/[.] (png|gif|jpe?g)/$'
+            // console.log(numb)
+            // console.log(numde)
+            // console.log(numde.test('.png'))   
+            // console.log(numb2.test('122'))   
+
+        //       let objImg = {
+        //     isglobal: true,
+        //     children: [
+        //         {
+        //             customCharacter: ['\\s','\\n']
+        //         }
+        //     ]
+        // };
+
+        // let regImg = Calves.init(objImg);
+        //   let testImg = ' .png';
+        // let testImg1 = '.jp g';
+        // let errorImg = `.pn
+        // ng`;
+
+        // console.log(regImg);
+        // console.log(regImg.test(testImg))
+        //  console.log(regImg);
+        // console.log(regImg.test(errorImg))
+        //  console.log(regImg);
+        //  console.log(regImg.test(testImg))
+        //  console.log(regImg.test(errorImg))
+        // console.log(regImg.test(testImg1))
+   
+      
+
+        // let rexdata=new RegExp('(\\s|\\n)','g');
+
+        // console.log(rexdata)
+        //  console.log(rexdata.test(testImg))
+         
+        // console.log(rexdata.test(testImg1))
+        // console.log(rexdata.test(errorImg))
+
+        // //  var str='QW45 6026BR65874A7301614';
+        // var rexstr=/[\s\n]/; //lastIndex 
+        // console.log(rexstr)
+        // console.log(rexstr.lastIndex)
+        // console.log( rexstr.test(' .png'));
+        // console.log(rexstr.lastIndex)
+        // console.log( rexstr.test(`.pn
+        // ng`));
+        // console.log(rexstr.lastIndex)
+        // console.log( rexstr.test('.jp g'));
+    
+    
+
+    // let Regimg=new RegExp(/[.](png|gif|jpe?g)$/)
+    // console.log(Regimg)
     // let imgs='a.gif';
     // console.log(Regimg.test(imgs))
     //   let imgs1='a.jpg';
