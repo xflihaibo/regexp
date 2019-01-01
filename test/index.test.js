@@ -147,18 +147,25 @@ describe('测试init()中文', function() {
     });
 });
 
-// describe('测试init()错误', function() {
-//     test('错误catch', () => {
-//         let objChinese = {
-//             strictStart: true,
-//             strictEnding: true,
-//             isglobal: true,
-//             children: [{}]
-//         };
-//         let regChinese = Calves.init(objChinese);
-//         expect(regChinese).toThrow('1000 全局匹配和开头匹配不能同时使用');
-//     });
-// });
+describe('测试特殊符号', function() {
+    test('验证 测试特殊符号', () => {
+        let Regspec = {
+            children: [
+                {
+                    customCharacter: ['\\s', '\\n']
+                }
+            ]
+        };
+        let Regspss = Calves.init(Regspec);
+        expect(Regspss.test(' .png')).toBe(true);
+        expect(Regspss.test('.jp g')).toBe(true);
+        expect(Regspss.test('.jpg')).toBe(false);
+        expect(
+            Regspss.test(`.pn
+            g`)
+        ).toBe(true);
+    });
+});
 
 describe('测试特定的字符', function() {
     test('特定字符', () => {
