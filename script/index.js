@@ -78,27 +78,43 @@
             if (JSON.stringify(item) === '{}') {
                 throw Error('1003 存在空对象!'); // 如果为空,返回false
             }
-            let isBrackets = false;
-            let items = item.customCharacter;
-            if (items) {
-                for (let i = 0; i < items.length; i++) {
-                    if (items[i].length >= 2 && items[i].slice(0, 2) !== '\\') {
-                        isBrackets = true;
+            //            console.log(item);
+            let codeNumber =
+                (!item.number ? 0 : 1) +
+                (!item.capitalCode ? 0 : 1) +
+                (!item.lowercaseCode ? 0 : 1) +
+                (!item.matchingChinese ? 0 : 2) +
+                (!item.customCharacter ? 0 : item.customCharacter.length);
+
+            // console.log(codeNumber);
+
+            let isBrackets = false,
+                codebool = false;
+            if (codeNumber > 1) {
+                codebool = true;
+                let items = item.customCharacter;
+                if (items) {
+                    for (let i = 0; i < items.length; i++) {
+                        if (items[i].length >= 2 && items[i].slice(0, 2) !== '\\') {
+                            isBrackets = true;
+                        }
                     }
                 }
+                if (isBrackets) {
+                    Calves.reg += item.singleMatch ? '(?:' : '('; //是否需要单独匹配
+                } else {
+                    Calves.reg += item.isReversal ? '[^' : '['; //判断是否取反
+                }
             }
-            if (isBrackets) {
-                Calves.reg += item.singleMatch ? '(?:' : '('; //是否需要单独匹配
-            } else {
-                Calves.reg += item.isReversal ? '[^' : '['; //判断是否取反
-            }
+
             item.number && constant('number');
             item.capitalCode && constant('capitalCode');
             item.lowercaseCode && constant('lowercaseCode');
             item.matchingChinese && constant('matchingChinese');
             //自定义字符
             item.customCharacter && item.customCharacter.length > 0 && custom(item.customCharacter, isBrackets);
-            Calves.reg += isBrackets ? ')' : ']';
+
+            Calves.reg += codebool ? (isBrackets ? ')' : ']') : '';
             matchingTimes(item);
         });
         Calves.reg += prames.strictEnding ? '$' : '';
@@ -118,9 +134,11 @@
     var matchingTimes = function(prames) {
         if ((prames.minCount && typeof prames.minCount == 'number') || (prames.maxCount && typeof prames.maxCount == 'number')) {
             Calves.reg += '{';
-            Calves.reg += prames.minCount && typeof prames.minCount == 'number' ? prames.minCount + '' : '1';
+            Calves.reg += prames.minCount && typeof prames.minCount == 'number' ? prames.minCount + '' : '0';
             Calves.reg += prames.maxCount && typeof prames.maxCount == 'number' ? ',' + prames.maxCount + '}' : '}';
         }
+        //匹配贪婪或懒惰模式
+        Calves.reg += prames.greedyLazy ? '?' : '';
     };
 
     //返回值结果

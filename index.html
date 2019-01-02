@@ -76,7 +76,7 @@
     //                 customCharacter: [1]
     //             },
     //             {
-    //                 customCharacter: [35789]
+    //                 customCharacter: [3,5,7,8,9]
     //             },
     //             {
     //                 number: true,
@@ -178,29 +178,38 @@
             // console.log(numde.test('.png'))   
             // console.log(numb2.test('122'))   
 
-        //       let objImg = {
-        //     isglobal: true,
+        // let objImg = {
+        //     isglobal:true,
         //     children: [
         //         {
-        //             customCharacter: ['\\s','\\n']
+        //          customCharacter: ['a']
+        //            // greedyLazy:true
+        //         }, {
+        //         customCharacter: ['.'],
+        //         minCount:0,
+        //         maxCount:999,
+        //         greedyLazy:true
+        //         },
+        //          {
+        //          customCharacter: ['b']
+                  
         //         }
         //     ]
         // };
-
         // let regImg = Calves.init(objImg);
-        //   let testImg = ' .png';
-        // let testImg1 = '.jp g';
-        // let errorImg = `.pn
-        // ng`;
 
         // console.log(regImg);
-        // console.log(regImg.test(testImg))
-        //  console.log(regImg);
-        // console.log(regImg.test(errorImg))
-        //  console.log(regImg);
-        //  console.log(regImg.test(testImg))
-        //  console.log(regImg.test(errorImg))
-        // console.log(regImg.test(testImg1))
+        // let res=/[a].{0,999}?[b]/g
+        // console.log('acbacbacb'.match(regImg))
+    
+       // let regex=/a.*d/g;
+       //  console.log('abcdakdjd"'.match(regex))
+
+
+
+        // console.log(regImg.match(testImg))
+        // console.log(regImg.match(errorImg))
+        // console.log(regImg.match(testImg1))
    
       
 
@@ -255,6 +264,26 @@
 // console.log(quick.test(quickOk));
 // console.log(quick.test(quickError));
 // console.log(Calves.VERSION)
+
+
+  
+        let objChinese = {
+            children: [
+                {
+                    matchingChinese: true,
+                    minCount: 1,
+                    maxCount: 4
+                }
+            ]
+        };
+        let regChinese = Calves.init(objChinese);
+        console.log(regChinese);
+        let testChinese = '中文';
+        let testChinese1 = '匹配中文';
+        let errorChinese = 'hello world';
+        console.log(regChinese.test(testChinese));
+        console.log(regChinese.test(errorChinese));
+        console.log(regChinese.test(testChinese1));
 
 
     }

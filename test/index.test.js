@@ -72,6 +72,32 @@ describe('测试 init() 方法', function() {
     });
 });
 
+describe('测试贪婪懒惰', function() {
+    test('贪婪懒惰', () => {
+        let objImg = {
+            isglobal: true,
+            children: [
+                {
+                    customCharacter: ['a']
+                },
+                {
+                    customCharacter: ['.'],
+                    minCount: 0,
+                    maxCount: 999,
+                    greedyLazy: true
+                },
+                {
+                    customCharacter: ['b']
+                }
+            ]
+        };
+        let regImg = Calves.init(objImg);
+        console.log(regImg);
+        let res = /[a].{0,999}?[b]/g;
+        expect('acbacbacb'.match(regImg).length).toBe(3);
+    });
+});
+
 describe('测试手机号码', function() {
     test('验证手机号', () => {
         let obj = {
@@ -82,7 +108,7 @@ describe('测试手机号码', function() {
                     customCharacter: [1]
                 },
                 {
-                    customCharacter: [35789]
+                    customCharacter: [3, 5, 7, 8, 9]
                 },
                 {
                     number: true,
@@ -91,6 +117,7 @@ describe('测试手机号码', function() {
             ]
         };
         let regPhone = Calves.init(obj);
+        console.log(regPhone);
         let testPhone = '13838624806';
         let errorPhone = '23838624806';
         let errorPhone2 = '12838624806';
@@ -117,6 +144,7 @@ describe('测试匹配图片', function() {
         };
 
         let regImg = Calves.init(objImg);
+        console.log(regImg);
         let testImg = '.png';
         let testImg1 = '.jpg';
         let errorImg = '.pnng';
@@ -138,6 +166,7 @@ describe('测试init()中文', function() {
             ]
         };
         let regChinese = Calves.init(objChinese);
+        console.log(regChinese);
         let testChinese = '中文';
         let testChinese1 = '匹配中文';
         let errorChinese = 'hello world';
