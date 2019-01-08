@@ -4,7 +4,7 @@
 <img src="./Image/logo.png" width="160px" align="center"  />
 </div>
 
-一个简单灵活的正则表达式生成库
+一个简单灵活的正则表达式生成库,欢迎 fork
 
 ## 参数
 
@@ -70,13 +70,12 @@
 
 > 设置自定义匹配参数
 
-
 > 类型：array
 > 默认：空
 
->注：() 括号中的内容可以单独成为一个整体；括号中的内容可以进行分组，单独匹配如果不需要(?:)。[] 方括号中的单独匹配，不可分组，传参的长度大于等于2并且非特殊符号（如：‘//n’）匹配用（）单个字符用[] 
+> 注：() 括号中的内容可以单独成为一个整体；括号中的内容可以进行分组，单独匹配如果不需要(?:)。[] 方括号中的单独匹配，不可分组，传参的长度大于等于 2 并且非特殊符号（如：‘//n’）匹配用（）单个字符用[]
 
->注：水平制表符（\t），垂直制表符（\v），换行符（\n），回车符（\r），换页符（\f）仅对单个字符有效，**new RegExp 的时候\w ，\\.这样的要用两个反斜杠，即\\w, \\. 因为字符串里反斜杠是转义字符，\w 会变成 w。因此传时必须双反斜杠即['\\\\w', '\\\\.'] 方可匹配字符**
+> 注：水平制表符（\t），垂直制表符（\v），换行符（\n），回车符（\r），换页符（\f）仅对单个字符有效，**new RegExp 的时候\w ，\\.这样的要用两个反斜杠，即\\w, \\. 因为字符串里反斜杠是转义字符，\w 会变成 w。因此传时必须双反斜杠即['\\\\w', '\\\\.'] 方可匹配字符**
 
 ### singleMatch
 
@@ -127,24 +126,24 @@ let obj = {
         }
     ]
 };
-let regPhone = new Calves(Reg.init(obj));
+let regPhone = Calves.init(obj);
 let testPhone = '13838624806';
 console.log(regPhone.test(testPhone));
 ```
 
 ## 快捷方式
 
-Number:数字
-Chinese:中文
-IDCard: 身份证号
-Letter:字母
-LetterNumber: 字母数字
-LowerCaseEnglish:小写英文
-CapitalEnglish: 大写英文
-Phone:匹配手机号
-Email:Email，
-Month: 月份
-Days: 日
+1.  Number:数字
+2.  Chinese:中文
+3.  IDCard: 身份证号
+4.  Letter:字母
+5.  LetterNumber: 字母数字
+6.  LowerCaseEnglish:小写英文
+7.  CapitalEnglish: 大写英文
+8.  Phone:匹配手机号
+9.  Email:Email，
+10. Month: 月份
+11. Days: 日
 
 #### 快捷用法
 

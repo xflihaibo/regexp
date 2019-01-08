@@ -34,9 +34,9 @@
             LowerCaseEnglish: `^[a-z]+$`, //小写英文
             CapitalEnglish: `^[A-Z]+$`, //大写英文
             Phone: `^1[35789]\\d{9}$`, // :匹配手机号
-            Email: `^\w+([-+.]\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*$`, //Email，
+            Email: `^\\w+([-+.]\\w+)*@\\w+([-.]\\w+)*\\.\\w+([-.]\\w+)*$`, //Email，
             Month: `^(0?[1-9]|1[0-2])$`, //月份
-            Days: '^((0?[1-9])|((1|2)[0-9])|30|31)$' //日
+            Days: '^((0?\\d)|((1|2)\\d)|30|31)$' //日
         };
 
         if (!quickUser[obj]) {
@@ -48,7 +48,6 @@
 
     // init 初始化数据
     Calves.init = function(obj) {
-        // console.log(JSON.stringify(obj));
         let initVariable = {
             strictStart: false,
             strictEnding: false,
@@ -56,7 +55,7 @@
             isignore: false
         };
         Calves.reg = '';
-        let newobj = Object.assign(initVariable, obj); //merge 数组
+        let newobj = Object.assign(initVariable, obj); //merge object
         if (newobj.isglobal && newobj.strictStart) {
             throw Error('1000 全局匹配和开头匹配不能同时使用');
         }
@@ -81,12 +80,10 @@
             //            console.log(item);
             let codeNumber =
                 (!item.number ? 0 : 1) +
-                (!item.capitalCode ? 0 : 1) +
-                (!item.lowercaseCode ? 0 : 1) +
+                (!item.capitalCode ? 0 : 2) +
+                (!item.lowercaseCode ? 0 : 2) +
                 (!item.matchingChinese ? 0 : 2) +
                 (!item.customCharacter ? 0 : item.customCharacter.length);
-
-            // console.log(codeNumber);
 
             let isBrackets = false,
                 codebool = false;
@@ -95,11 +92,12 @@
                 let items = item.customCharacter;
                 if (items) {
                     for (let i = 0; i < items.length; i++) {
-                        if (items[i].length >= 2 && items[i].slice(0, 2) !== '\\') {
+                        if (items[i].length >= 2 && items[i].slice(0, 1) !== '\\') {
                             isBrackets = true;
                         }
                     }
                 }
+
                 if (isBrackets) {
                     Calves.reg += item.singleMatch ? '(?:' : '('; //是否需要单独匹配
                 } else {
@@ -137,8 +135,7 @@
             Calves.reg += prames.minCount && typeof prames.minCount == 'number' ? prames.minCount + '' : '0';
             Calves.reg += prames.maxCount && typeof prames.maxCount == 'number' ? ',' + prames.maxCount + '}' : '}';
         }
-        //匹配贪婪或懒惰模式
-        Calves.reg += prames.greedyLazy ? '?' : '';
+        Calves.reg += prames.greedyLazy ? '?' : ''; //匹配贪婪或懒惰模式
     };
 
     //返回值结果
