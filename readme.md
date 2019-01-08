@@ -158,9 +158,7 @@ console.log(quick.test(quickError));
 
 ## fork 启动项目
 
-#### 项目测试
-
-nrm 是一个 npm 源管理器，允许你快速地在 npm 源间切换；[参考地址](https://github.com/Pana/nrm)
+#### 测试
 
 ```bush
 //进入到项目中下载依赖
@@ -181,6 +179,7 @@ npm run test
 | +-- index.js
 +-- test //项目测试用例
 |   +-- index.test.js  //测试用例
++-- index.html //项目预览
 +-- package.json //依赖
 +-- README.md  //说明文档
 +-- .babelrc   //babel 配置
