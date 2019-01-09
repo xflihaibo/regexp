@@ -35,6 +35,24 @@ describe('测试 init() 方法', function() {
         expect(regcodeglobel.test('12a12')).toBe(true);
     });
 
+    test('验证取反匹配', function() {
+        let codeglobel = {
+            isglobal: true,
+            children: [
+                {
+                    isReversal: true,
+                    customCharacter: ['a']
+                }
+            ]
+        };
+        let regcodeglobel = Calves.init(codeglobel);
+        let codeglobelok = 'A';
+        let codeglobelerror = 'a';
+        expect(regcodeglobel.test(codeglobelok)).toBe(true);
+        expect(regcodeglobel.test(codeglobelerror)).toBe(false);
+        expect(regcodeglobel.test('12a12')).toBe(true);
+    });
+
     test('全局验证大小写字母', function() {
         let codeall = {
             isignore: true,
@@ -82,8 +100,11 @@ describe('测试贪婪懒惰', function() {
                 },
                 {
                     customCharacter: ['.'],
-                    minCount: 0,
-                    maxCount: 999,
+                    qualifier: {
+                        minCount: 0,
+                        maxCount: 999
+                    },
+
                     greedyLazy: true
                 },
                 {
@@ -92,7 +113,7 @@ describe('测试贪婪懒惰', function() {
             ]
         };
         let regImg = Calves.init(objImg);
-        console.log(regImg);
+
         let res = /[a].{0,999}?[b]/g;
         expect('acbacbacb'.match(regImg).length).toBe(3);
     });
@@ -112,12 +133,14 @@ describe('测试手机号码', function() {
                 },
                 {
                     number: true,
-                    minCount: 9
+                    qualifier: {
+                        minCount: 9
+                    }
                 }
             ]
         };
         let regPhone = Calves.init(obj);
-        console.log(regPhone);
+
         let testPhone = '13838624806';
         let errorPhone = '23838624806';
         let errorPhone2 = '12838624806';
@@ -144,7 +167,7 @@ describe('测试匹配图片', function() {
         };
 
         let regImg = Calves.init(objImg);
-        console.log(regImg);
+
         let testImg = '.png';
         let testImg1 = '.jpg';
         let errorImg = '.pnng';
@@ -160,13 +183,15 @@ describe('测试init()中文', function() {
             children: [
                 {
                     matchingChinese: true,
-                    minCount: 1,
-                    maxCount: 4
+                    qualifier: {
+                        minCount: 1,
+                        maxCount: 4
+                    }
                 }
             ]
         };
         let regChinese = Calves.init(objChinese);
-        console.log(regChinese);
+
         let testChinese = '中文';
         let testChinese1 = '匹配中文';
         let errorChinese = 'hello world';
@@ -205,8 +230,10 @@ describe('测试特定的字符', function() {
                 {
                     number: true,
                     customCharacter: ['a', 'b', 'c'],
-                    minCount: 2,
-                    maxCount: 4
+                    qualifier: {
+                        minCount: 2,
+                        maxCount: 4
+                    }
                 }
             ]
         };

@@ -23,7 +23,7 @@
         lowercaseCode: 'A-Z',
         matchingChinese: '\u4E00-\u9FA5'
     };
-    // 简便方式
+    // 简洁方式
     Calves.quick = function(obj) {
         let quickUser = {
             Number: `^[0-9]*$`, //数字
@@ -85,7 +85,7 @@
                 (!item.matchingChinese ? 0 : 2) +
                 (!item.customCharacter ? 0 : item.customCharacter.length); //获取长度判读是否需要用()或{}
 
-            let isBrackets = false, // 获取数值 判断使用 ()：[]
+            let isBrackets = false, // 获取数值 判断使用 ()：[]  默认
                 codebool = false;
             if (codeNumber > 1) {
                 codebool = true;
@@ -102,6 +102,11 @@
                     Calves.reg += item.singleMatch ? '(?:' : '('; //是否需要单独匹配
                 } else {
                     Calves.reg += item.isReversal ? '[^' : '['; //判断是否取反
+                }
+            } else {
+                if (item.isReversal) {
+                    codebool = true;
+                    Calves.reg += '[^'; //判断是否取反
                 }
             }
 
@@ -128,13 +133,18 @@
         Calves.reg += bool ? prames.join('|') : prames.join('');
     };
 
-    //匹配次数{min,max}
+    //匹配次数{min,max}、*、 +、 ?
     var matchingTimes = function(prames) {
-        if ((prames.minCount && typeof prames.minCount == 'number') || (prames.maxCount && typeof prames.maxCount == 'number')) {
-            Calves.reg += '{';
-            Calves.reg += prames.minCount && typeof prames.minCount == 'number' ? prames.minCount + '' : '0';
-            Calves.reg += prames.maxCount && typeof prames.maxCount == 'number' ? ',' + prames.maxCount + '}' : '}';
+        if (prames.qualifier && typeof prames.qualifier == 'object') {
+            let quaobj = prames.qualifier;
+            if ((quaobj.minCount && typeof quaobj.minCount == 'number') || (quaobj.maxCount && typeof quaobj.maxCount == 'number')) {
+                Calves.reg += quaobj.minCount && typeof quaobj.minCount == 'number' ? '{' + quaobj.minCount : '{0';
+                Calves.reg += quaobj.maxCount && typeof quaobj.maxCount == 'number' ? ',' + quaobj.maxCount + '}' : '}';
+            }
+        } else if (prames.qualifier && typeof prames.qualifier == 'string') {
+            Calves.reg += prames.qualifier;
         }
+
         Calves.reg += prames.greedyLazy ? '?' : ''; //匹配贪婪或懒惰模式
     };
 

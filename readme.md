@@ -38,7 +38,7 @@
 
 > 设置匹配参数条件
 > 类型：array
-> 必填项
+> 必填：true
 
 ## 子级
 
@@ -88,6 +88,19 @@
 > 设置匹配值取反
 > 类型：boolean
 > 默认：false
+
+### qualifier
+
+> 限定符 （指定出现数量的代码）
+> 类型： objecct | string (?、+、 \*)
+> 默认：空
+
+```javascript
+    qualifier:{
+        minCount:0,
+        maxCount:7
+    }
+```
 
 ### minCount
 

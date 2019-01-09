@@ -265,25 +265,42 @@
 // console.log(quick.test(quickError));
 // console.log(Calves.VERSION)
 
-
-  
-        let objChinese = {
+   let codeglobel = {
+            isglobal: true,
             children: [
                 {
-                    matchingChinese: true,
-                    minCount: 1,
-                    maxCount: 4
+                    isReversal: true,
+                    customCharacter: ['a']
                 }
             ]
         };
-        let regChinese = Calves.init(objChinese);
-        console.log(regChinese);
-        let testChinese = '中文';
-        let testChinese1 = '匹配中文';
-        let errorChinese = 'hello world';
-        console.log(regChinese.test(testChinese));
-        console.log(regChinese.test(errorChinese));
-        console.log(regChinese.test(testChinese1));
+        let regcodeglobel = Calves.init(codeglobel);
+        console.log(regcodeglobel);
+        let codeglobelok = 'A';
+        let codeglobelerror = 'a';
+        console.log(regcodeglobel.test(codeglobelok))
+        console.log(regcodeglobel.test(codeglobelerror));
+        console.log(regcodeglobel.test('12a12'));
+
+
+  
+        // let objChinese = {
+        //     children: [
+        //         {
+        //             matchingChinese: true,
+        //             qualifier:'?'
+                 
+        //         }
+        //     ]
+        // };
+        // let regChinese = Calves.init(objChinese);
+        // console.log(regChinese);
+        // let testChinese = '中文';
+        // let testChinese1 = '匹配中文';
+        // let errorChinese = 'hello world';
+        // console.log(regChinese.test(testChinese));
+        // console.log(regChinese.test(errorChinese));
+        // console.log(regChinese.test(testChinese1));
 
 
     }
