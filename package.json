@@ -1,6 +1,6 @@
 {
-  "name": "calves-self",
-  "version": "1.0.0",
+  "name": "calves",
+  "version": "1.0.3",
   "description": "regular expression --calves",
   "main": "script/index.js",
   "directories": {
