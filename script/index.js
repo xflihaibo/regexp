@@ -77,22 +77,22 @@
             if (JSON.stringify(item) === '{}') {
                 throw Error('1003 存在空对象!'); // 如果为空,返回false
             }
-            //            console.log(item);
+
             let codeNumber =
                 (!item.number ? 0 : 1) +
                 (!item.capitalCode ? 0 : 2) +
                 (!item.lowercaseCode ? 0 : 2) +
                 (!item.matchingChinese ? 0 : 2) +
-                (!item.customCharacter ? 0 : item.customCharacter.length);
+                (!item.customCharacter ? 0 : item.customCharacter.length); //获取长度判读是否需要用()或{}
 
-            let isBrackets = false,
+            let isBrackets = false, // 获取数值 判断使用 ()：[]
                 codebool = false;
             if (codeNumber > 1) {
                 codebool = true;
                 let items = item.customCharacter;
                 if (items) {
                     for (let i = 0; i < items.length; i++) {
-                        if (items[i].length >= 2 && items[i].slice(0, 1) !== '\\') {
+                        if (items[i].length >= 2 && items[i].slice(0, 2) !== '\\') {
                             isBrackets = true;
                         }
                     }
@@ -118,17 +118,17 @@
         Calves.reg += prames.strictEnding ? '$' : '';
     };
 
-    //定义的常量
+    //定义的常量 character[number]
     var constant = function(count) {
         Calves.reg += character[count];
     };
 
-    //自定义匹配规则操作
+    //自定义匹配规则操作(a|b|c)
     var custom = function(prames, bool) {
         Calves.reg += bool ? prames.join('|') : prames.join('');
     };
 
-    //匹配次数
+    //匹配次数{min,max}
     var matchingTimes = function(prames) {
         if ((prames.minCount && typeof prames.minCount == 'number') || (prames.maxCount && typeof prames.maxCount == 'number')) {
             Calves.reg += '{';
@@ -141,7 +141,7 @@
     //返回值结果
     var resultValue = function(prames) {
         if (prames.isglobal || prames.isignore) {
-            let pra = prames.isignore ? 'i' : '' + prames.isglobal ? 'g' : '';
+            let pra = prames.isignore ? 'i' : '' + prames.isglobal ? 'g' : ''; //是否匹配大小写 是否全局匹配
             return new RegExp(Calves.reg, pra);
         } else {
             return new RegExp(Calves.reg);
