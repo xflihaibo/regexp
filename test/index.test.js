@@ -320,3 +320,6 @@ describe('测试版本信息', function() {
         expect(Calves.VERSION).toBe('1.0.0');
     });
 });
+
+
+

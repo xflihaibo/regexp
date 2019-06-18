@@ -1,6 +1,6 @@
 {
   "name": "calves",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "regular expression --calves",
   "main": "script/index.js",
   "directories": {
@@ -10,6 +10,7 @@
     "type": "git",
     "url": "git@github.com:Silence520/regexp.git"
   },
+  "keywords": ["javascript", "regexp", "regular expression"],
   "scripts": {
     "test": "jest ",
     "test:report": "jest  --coverage"

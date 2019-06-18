@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1547032601054" clover="3.2.0">
-  <project timestamp="1547032601054" name="All files">
+<coverage generated="1552655515303" clover="3.2.0">
+  <project timestamp="1552655515303" name="All files">
     <metrics statements="78" coveredstatements="68" conditionals="114" coveredconditionals="88" methods="10" coveredmethods="9" elements="202" coveredelements="165" complexity="0" loc="78" ncloc="78" packages="1" files="1" classes="1">
       <file name="index.js" path="/Users/lihaibo/Desktop/regexp/script/index.js">
         <metrics statements="78" coveredstatements="68" conditionals="114" coveredconditionals="88" methods="10" coveredmethods="9"/>
