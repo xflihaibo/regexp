@@ -4,31 +4,31 @@
 <img src="./Image/logo.png" width="160px" align="center"  />
 </div>
 
-一个简单灵活的正则表达式生成库,欢迎 👏👏fork
+一个简单灵活的正则表达式生成库,支持多种表达式生成,欢迎 👏👏fork，欢迎 👏👏 start .
 
 ## 参数
 
 ### strictStart
 
-> 设置开头校验 (不能和全局查找 isglobal 同用)
-> 类型：boolean
+> 设置是否从开头校验 (不能和全局查找 isglobal 同用)
+> 类型：boolean˜
 > 默认：false
 
 ### strictEnding
 
-> 设置持续到结尾匹配 (不能和全局查找 isglobal 同用)
+> 设置是否持续到结尾匹配 (不能和全局查找 isglobal 同用)
 > 类型：boolean
 > 默认：false
 
-### isglobal
+### isGlobal
 
-> 设置全局查找
+> 设置是否全局查找
 > 类型：boolean
 > 默认：false
 
 > 注：正则表达式对象具有修饰符 g 时，它将把当前正则表达式对象的 lastIndex 属性设置为紧挨着匹配子串的字符位置，当同一个正则表达式第二次调用时，它会将从 lastIndex 属性所指示的字符串处开始检索，如果没有发现任何匹配结果，它会将 lastIndex 重置为 0。
 
-### isignore
+### isIgnore
 
 > 设置是否区分大小
 > 类型：boolean
@@ -102,13 +102,13 @@
     }
 ```
 
-### minCount
+#### qualifier.minCount
 
 > 设置最小出现次数
 > 类型：number
 > 默认：0
 
-### maxCount
+#### qualifier.maxCount
 
 > 设置最大出现次数
 > 类型：number
@@ -168,6 +168,15 @@ console.log(quick);
 console.log(quick.test(quickOk));
 console.log(quick.test(quickError));
 ```
+
+## 常见错误 code
+
+| code |              说明              |
+| ---- | :----------------------------: |
+| 1000 | 全局匹配和开头匹配不能同时使用 |
+| 1001 | 全局匹配和结尾匹配不能同时使用 |
+| 1002 |        匹配参数不能为空        |
+| 1003 |           存在空对象           |
 
 ## fork 启动项目
 

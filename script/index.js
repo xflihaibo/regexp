@@ -51,15 +51,15 @@
         let initVariable = {
             strictStart: false,
             strictEnding: false,
-            isglobal: false,
-            isignore: false
+            isGlobal: false,
+            isIgnore: false
         };
         Calves.reg = '';
         let newobj = Object.assign(initVariable, obj); //merge object
-        if (newobj.isglobal && newobj.strictStart) {
+        if (newobj.isGlobal && newobj.strictStart) {
             throw Error('1000 全局匹配和开头匹配不能同时使用');
         }
-        if (newobj.isglobal && newobj.strictEnding) {
+        if (newobj.isGlobal && newobj.strictEnding) {
             throw Error('1001 全局匹配和结尾匹配不能同时使用');
         }
         matching(newobj);
@@ -150,8 +150,8 @@
 
     //返回值结果
     var resultValue = function(prames) {
-        if (prames.isglobal || prames.isignore) {
-            let pra = prames.isignore ? 'i' : '' + prames.isglobal ? 'g' : ''; //是否匹配大小写 是否全局匹配
+        if (prames.isGlobal || prames.isIgnore) {
+            let pra = prames.isIgnore ? 'i' : '' + prames.isGlobal ? 'g' : ''; //是否匹配大小写 是否全局匹配
             return new RegExp(Calves.reg, pra);
         } else {
             return new RegExp(Calves.reg);

@@ -20,7 +20,7 @@ describe('测试 init() 方法', function() {
 
     test('验证全局匹配', function() {
         let codeglobel = {
-            isglobal: true,
+            isGlobal: true,
             children: [
                 {
                     customCharacter: ['a']
@@ -37,7 +37,7 @@ describe('测试 init() 方法', function() {
 
     test('验证取反匹配', function() {
         let codeglobel = {
-            isglobal: true,
+            isGlobal: true,
             children: [
                 {
                     isReversal: true,
@@ -55,8 +55,8 @@ describe('测试 init() 方法', function() {
 
     test('全局验证大小写字母', function() {
         let codeall = {
-            isignore: true,
-            isglobal: true,
+            isIgnore: true,
+            isGlobal: true,
             children: [
                 {
                     customCharacter: ['a']
@@ -73,7 +73,7 @@ describe('测试 init() 方法', function() {
 
     test('验证全局匹配大小写', function() {
         let codeignore = {
-            isignore: true,
+            isIgnore: true,
             children: [
                 {
                     customCharacter: ['a']
@@ -93,7 +93,7 @@ describe('测试 init() 方法', function() {
 describe('测试贪婪懒惰', function() {
     test('贪婪懒惰', () => {
         let objImg = {
-            isglobal: true,
+            isGlobal: true,
             children: [
                 {
                     customCharacter: ['a']
